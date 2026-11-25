@@ -1,0 +1,191 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ôn tập Toán lớp 1 – Đề 2</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f0f6fc;color:#18334d;font:18px/1.55 system-ui,-apple-system,sans-serif}main{max-width:720px;margin:auto;padding:18px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}h1{font-size:clamp(23px,5vw,32px);margin:0}h2{font-size:clamp(23px,5vw,30px);line-height:1.35;margin:14px 0}small{font-size:14px;color:#536b80}.card{background:white;border:1px solid #dce7f1;border-radius:24px;padding:clamp(16px,4vw,30px);margin-top:18px;box-shadow:0 8px 24px #204d7510}.track{height:12px;border-radius:20px;background:#dbe7f2;overflow:hidden;margin:12px 0}.bar{height:100%;background:#16835e;transition:width .25s}.meta{display:flex;justify-content:space-between;gap:8px;font-weight:700}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}button{font:inherit;font-weight:700;cursor:pointer;border:2px solid #c3d7eb;background:#f6faff;color:#173c60;border-radius:16px;min-height:62px;padding:12px;touch-action:manipulation}button:focus-visible{outline:3px solid #eaa620;outline-offset:3px}button.selected{border-color:#1768c4;background:#e0efff;color:#0b4b9b}button:disabled{cursor:default;opacity:.55}button.good{border-color:#16835e;background:#e4f7ed;opacity:1;color:#126542}button.bad{border-color:#c33939;background:#ffeded;opacity:1;color:#a12323}.primary{background:#1768c4;color:white;border-color:#1768c4;width:100%}.actions{display:flex;gap:10px;align-items:stretch}.actions .primary{flex:1}.slots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0}.slot{min-width:44px;text-align:center;padding:8px;border:2px dashed #88a9cb;border-radius:10px;font-size:24px;font-weight:700;background:#f4f9ff}.fixed{border-style:solid;background:#e8eef5;border-color:#dbe5ef}.feedback{padding:15px;border-radius:14px;margin:16px 0;background:#eef5fb}.feedback.ok{background:#e5f6ec;color:#135a3b}.feedback.no{background:#fff1e9;color:#853d18}.source{display:block;margin-top:10px;font-size:13px;color:#536b80}.big{font-size:42px;font-weight:800;text-align:center;margin:10px 0}.shape{display:block;width:140px;height:115px;margin:15px auto}.result{font-size:48px;font-weight:800;text-align:center;color:#1768c4}.review{padding:12px 0;border-bottom:1px solid #dce7f1}.secondary{min-height:44px;font-size:15px;background:white}.sr{position:absolute;left:-9999px}@media(max-width:380px){main{padding:10px}.options{gap:8px}button{padding:8px}.slot{min-width:40px;font-size:21px}}@media(prefers-reduced-motion:reduce){.bar{transition:none}}.options button{overflow-wrap:anywhere;min-height:70px} @media(max-width:520px){.options.long{grid-template-columns:1fr}} </style></head><body><main><header><div><small>TOÁN LỚP 1 · HỌC KỲ I · ĐỀ 2</small><h1>🌟 Bé vui ôn Toán</h1></div><button class="secondary" id="restart">Làm lại</button></header><div class="card" id="app"></div><p><small>Đề 2 • 10 câu • Chạm để trả lời • Không cần mạng</small></p></main><script>
+const qs=[
+  {
+    "topic": "Giá trị chữ số",
+    "kind": "fill",
+    "q": "Cho số 28. Điền giá trị của mỗi chữ số:",
+    "big": "28",
+    "labels": [
+      "Chữ số 2",
+      "Chữ số 8"
+    ],
+    "opts": [
+      "2",
+      "8",
+      "20",
+      "80"
+    ],
+    "ans": [
+      "20",
+      "8"
+    ],
+    "ex": "Chữ số 2 ở hàng chục có giá trị 20. Chữ số 8 ở hàng đơn vị có giá trị 8.",
+    "src": "Chuyên đề 1 – Các số trong phạm vi 100, trang 2, câu 8."
+  },
+  {
+    "topic": "Dãy số",
+    "kind": "fill",
+    "q": "Điền 3 số còn thiếu:",
+    "prefix": [
+      "40",
+      "38",
+      "36"
+    ],
+    "opts": [
+      "30",
+      "35",
+      "34",
+      "28",
+      "32",
+      "33"
+    ],
+    "ans": [
+      "34",
+      "32",
+      "30"
+    ],
+    "ex": "Đếm lùi cách đều 2 đơn vị: 40, 38, 36, 34, 32, 30.",
+    "src": "Chuyên đề 1 – Các số trong phạm vi 100, trang 1, câu 2c."
+  },
+  {
+    "topic": "Phép cộng",
+    "kind": "mc",
+    "q": "Chọn kết quả đúng:",
+    "big": "52 + 7 = ?",
+    "opts": [
+      "57",
+      "59",
+      "62",
+      "69"
+    ],
+    "ans": [
+      "59"
+    ],
+    "ex": "2 đơn vị cộng 7 đơn vị bằng 9 đơn vị. Giữ nguyên 5 chục, được 59.",
+    "src": "Phiếu tổng hợp số 1, trang 1, câu 4a."
+  },
+  {
+    "topic": "Phép trừ",
+    "kind": "fill",
+    "q": "Điền kết quả phép tính:",
+    "big": "52 − 20 = ?",
+    "opts": [
+      "50",
+      "42",
+      "32",
+      "30"
+    ],
+    "ans": [
+      "32"
+    ],
+    "ex": "52 có 5 chục và 2 đơn vị. Bớt 2 chục, còn 3 chục và 2 đơn vị, tức 32.",
+    "src": "Chuyên đề 2 – Cộng, trừ trong phạm vi 100, trang 1, câu 5b."
+  },
+  {
+    "topic": "Phép nhân",
+    "kind": "mc",
+    "q": "Chọn kết quả đúng:",
+    "big": "2 × 7 = ?",
+    "opts": [
+      "12",
+      "16",
+      "9",
+      "14"
+    ],
+    "ans": [
+      "14"
+    ],
+    "ex": "Đếm 7 lần, mỗi lần 2 đơn vị: 2, 4, 6, 8, 10, 12, 14.",
+    "src": "Chuyên đề 2 – Nhân, chia trong phạm vi 100, trang 1, câu 3."
+  },
+  {
+    "topic": "Phép chia",
+    "kind": "fill",
+    "q": "Điền kết quả phép chia:",
+    "big": "45 ÷ 5 = ?",
+    "opts": [
+      "5",
+      "8",
+      "9",
+      "10"
+    ],
+    "ans": [
+      "9"
+    ],
+    "ex": "Trừ lặp lại 5 từ 45: 40, 35, 30, 25, 20, 15, 10, 5, 0. Có 9 lần trừ.",
+    "src": "Chuyên đề 2 – Nhân, chia trong phạm vi 100, trang 1, câu 4."
+  },
+  {
+    "topic": "Tiền tệ",
+    "kind": "mc",
+    "q": "Trong hai mức giá sau, mức giá nào lớn hơn?",
+    "opts": [
+      "$6",
+      "$8"
+    ],
+    "ans": [
+      "$8"
+    ],
+    "ex": "$8 lớn hơn $6. Hai mức giá đều dùng cùng kí hiệu $.",
+    "src": "Chuyên đề 3 – Tiền tệ, trang 2, bài 6 (hai mức giá trong hình)."
+  },
+  {
+    "topic": "Một phần hai",
+    "kind": "fill",
+    "q": "8 bạn chia nhau bánh quy. Mỗi bạn được một nửa cái bánh. Lúc đầu có bao nhiêu cái bánh quy?",
+    "opts": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "ans": [
+      "4"
+    ],
+    "ex": "Hai nửa ghép thành một cái bánh. 8 nửa ghép thành 4 cái bánh.",
+    "src": "Phiếu tổng hợp số 1, trang 6, câu 6."
+  },
+  {
+    "topic": "Hình phẳng",
+    "kind": "mc",
+    "q": "Hình nào có 6 cạnh và 6 đỉnh?",
+    "opts": [
+      "Hình ngũ giác đều",
+      "Hình lục giác đều",
+      "Hình bát giác đều",
+      "Hình tam giác"
+    ],
+    "ans": [
+      "Hình lục giác đều"
+    ],
+    "ex": "Hình lục giác đều có 6 cạnh và 6 đỉnh.",
+    "src": "Bài 4.2 – Hình phẳng và đối xứng, trang 9."
+  },
+  {
+    "topic": "Hình khối",
+    "kind": "mc",
+    "q": "Hình nào không có mặt phẳng và không có đỉnh?",
+    "opts": [
+      "Hình trụ",
+      "Hình lập phương",
+      "Hình cầu",
+      "Hình hộp chữ nhật"
+    ],
+    "ans": [
+      "Hình cầu"
+    ],
+    "ex": "Hình cầu có 0 mặt phẳng, 0 đỉnh. Bề mặt cong không được tính là mặt theo tài liệu.",
+    "src": "Bài 4.1 – Hình khối, trang 7; Phiếu tổng hợp số 1, trang 2, câu 6b."
+  }
+];
+let idx=0,score=0,selected=[],locked=false,history=[];const app=document.getElementById('app');
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function reset(){idx=0;score=0;selected=[];locked=false;history=[];render()}
+document.getElementById('restart').onclick=()=>{if(!history.length||confirm('Con muốn bắt đầu lại từ câu 1?'))reset()};
+function shape(q){if(q.shape==='triangle')return '<svg class="shape" viewBox="0 0 140 115" role="img" aria-label="Hình tam giác đỉnh hướng lên"><path d="M70 8 8 107 132 107Z" fill="#36a66b" stroke="#176441" stroke-width="3"/></svg>';if(q.shape==='pyramid')return '<svg class="shape" viewBox="0 0 140 115" role="img" aria-label="Hình chóp đáy vuông"><path d="M62 6 12 79 79 108 128 77Z" fill="#f1b55a" stroke="#73471b" stroke-width="2"/><path d="M62 6 79 108 128 77Z" fill="#da8631" stroke="#73471b" stroke-width="2"/><path d="M62 6 66 55 12 79 M66 55 128 77" fill="none" stroke="#73471b" stroke-width="2" stroke-dasharray="5 5"/></svg>';if(q.choc)return '<svg class="shape" viewBox="0 0 150 120" role="img" aria-label="Thanh sô cô la 4 hàng, mỗi hàng 5 ô">'+Array.from({length:20},(_,i)=>`<rect x="${(i%5)*28+6}" y="${Math.floor(i/5)*28+4}" width="25" height="25" rx="3" fill="#a66436" stroke="#70401d" stroke-width="2"/>`).join('')+'</svg>';return ''}
+function render(){if(idx===qs.length){app.innerHTML=`<h2>🎉 Hoàn thành bài ôn!</h2><div class="result">${score}/10</div><p>${score===10?'Con đã trả lời đúng tất cả các câu!':'Con đã hoàn thành 10 câu. Hãy xem lại những câu cần luyện thêm nhé.'}</p>${history.map((h,i)=>`<div class="review"><strong>${h.ok?'✅':'❌'} Câu ${i+1} – ${esc(qs[i].topic)}</strong>${h.ok?'':`<div>Con chọn: ${esc(h.selected.join(', '))}</div><div>Đáp án: ${esc(qs[i].ans.join(', '))}</div><small>${esc(qs[i].ex)}</small>`}</div>`).join('')}<button class="primary" style="margin-top:20px" id="again">Ôn lại từ đầu</button>`;document.getElementById('again').onclick=reset;return}
+const q=qs[idx];let h=history[idx];let slots=q.kind==='fill'?`<div class="slots">${(q.prefix||[]).map(x=>`<span class="slot fixed">${x}</span>`).join('')}${q.ans.map((_,i)=>`<div style="text-align:center">${q.labels?`<small>${q.labels[i]}</small>`:''}<div class="slot">${esc(selected[i]||'?')}</div></div>`).join('')}</div>`:'';
+app.innerHTML=`<div class="meta"><span>Câu ${idx+1}/10</span><span>⭐ ${score}/10 điểm</span></div><div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="${history.length}"><div class="bar" style="width:${history.length*10}%"></div></div><small>${esc(q.topic)} · ${q.kind==='mc'?'Trắc nghiệm':'Điền đáp án bằng nút bấm'}</small><h2>${esc(q.q)}</h2>${q.big?`<div class="big">${esc(q.big)}</div>`:''}${shape(q)}${slots}<div class="options ${q.opts.some(x=>x.length>16)?'long':''}">${q.opts.map((x,i)=>{let cl=selected.includes(x)?'selected':'';if(locked&&q.kind==='mc'){if(q.ans.includes(x))cl='good';else if(selected.includes(x))cl='bad'}return `<button data-option="${i}" class="${cl}" ${locked?'disabled':''} aria-pressed="${selected.includes(x)}">${esc(x)}</button>`}).join('')}</div>${locked?`<div class="feedback ${h.ok?'ok':'no'}" role="status"><strong>${h.ok?'✅ Chính xác! +1 điểm':'💡 Chưa chính xác. +0 điểm'}</strong>${h.ok?'':`<div><b>Đáp án đúng:</b> ${esc(q.ans.join(', '))}</div>`}<div>${esc(q.ex)}</div><span class="source">Nguồn: ${esc(q.src)}</span></div><button id="next" class="primary">${idx===9?'Xem kết quả':'Câu tiếp theo →'}</button>`:`<div class="actions">${q.kind==='fill'?'<button id="undo" '+(!selected.length?'disabled':'')+'>Xóa</button>':''}<button id="submit" class="primary" ${selected.length!==q.ans.length?'disabled':''}>Nộp bài</button></div>`}`;
+app.querySelectorAll('[data-option]').forEach(b=>b.onclick=()=>{const v=q.opts[Number(b.dataset.option)];if(locked)return;if(q.kind==='mc')selected=[v];else if(selected.length<q.ans.length)selected.push(v);render()});const undo=document.getElementById('undo');if(undo)undo.onclick=()=>{selected.pop();render()};const submit=document.getElementById('submit');if(submit)submit.onclick=()=>{if(locked||selected.length!==q.ans.length)return;const ok=q.ans.every((x,i)=>x===selected[i]);if(ok)score++;history.push({ok,selected:[...selected]});locked=true;render()};const next=document.getElementById('next');if(next)next.onclick=()=>{idx++;selected=[];locked=false;render();window.scrollTo(0,0)}}
+render();</script></body></html>
